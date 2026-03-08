@@ -3,21 +3,24 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Owino Benson - Personal Portfolio </title>
+    <title>Benson Owino | Software Engineer & Fintech Innovator</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free Website Template" name="keywords">
-    <meta content="Free Website Template" name="description">
+    <meta content="Software Engineer, Fintech, Blockchain, Stellar, Web3, Full Stack Developer" name="keywords">
+    <meta content="Benson Owino - Innovative Software Engineer specializing in fintech, blockchain, and AI-driven applications." name="description">
 
     <!-- Favicon -->
-    <link href="https://img.icons8.com/fluency/48/000000/open-resume.png" rel="icon">
+    <link href="https://img.icons8.com/fluency/48/000000/source-code.png" rel="icon">
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=Poppins&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -25,412 +28,1345 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #00D4AA;
+            --accent-2: #7C3AED;
+            --dark-bg: #0A0A0F;
+            --card-bg: #12121A;
+            --card-border: #1E1E2E;
+            --text-primary: #EAEAF0;
+            --text-secondary: #8888A0;
+            --gradient: linear-gradient(135deg, #00D4AA, #7C3AED);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg) !important;
+            color: var(--text-primary) !important;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--dark-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            background: var(--card-bg) !important;
+            border-right: 1px solid var(--card-border) !important;
+        }
+
+        .sidebar .sidebar-text {
+            background: var(--card-bg) !important;
+        }
+
+        .sidebar h1 {
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--text-primary) !important;
+            letter-spacing: -0.02em;
+        }
+
+        .sidebar .typed-text-output {
+            color: var(--accent) !important;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .sidebar a i {
+            color: var(--text-secondary) !important;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover i {
+            color: var(--accent) !important;
+            transform: translateY(-2px);
+        }
+
+        .sidebar .btn {
+            color: var(--text-primary) !important;
+            border-color: var(--card-border) !important;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .btn:hover {
+            background: var(--accent) !important;
+            color: #000 !important;
+            border-color: var(--accent) !important;
+        }
+
+        .sidebar-icon i {
+            color: var(--accent) !important;
+        }
+
+        /* --- MAIN CONTENT --- */
+        .content {
+            background: var(--dark-bg) !important;
+        }
+
+        .content .container {
+            background: transparent !important;
+        }
+
+        .bg-white {
+            background: transparent !important;
+        }
+
+        /* Section Titles */
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        .section-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            color: var(--text-primary) !important;
+        }
+
+        .title::after {
+            background: var(--accent) !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(0,212,170,0.1);
+            border: 1px solid rgba(0,212,170,0.2);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-badge .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        /* --- CARDS --- */
+        .modern-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .modern-card:hover {
+            border-color: rgba(0,212,170,0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .modern-card .card-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .modern-card h5 {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .modern-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* --- EXPERIENCE TIMELINE --- */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-2), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--dark-bg);
+            z-index: 1;
+            margin-left: -5px;
+        }
+
+        .timeline-item .company {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .timeline-item .role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0.25rem 0;
+        }
+
+        .timeline-item .period {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* --- SKILLS --- */
+        .skill-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            margin: 0.3rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            background: rgba(0,212,170,0.08);
+            transform: translateY(-2px);
+        }
+
+        .skill-tag i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.75rem;
+        }
+
+        /* --- PORTFOLIO / PROJECTS --- */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            border-color: rgba(0,212,170,0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+        }
+
+        .project-card .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--card-border);
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.03);
+        }
+
+        .project-card .project-img-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-card .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-card .project-body {
+            padding: 1.25rem;
+        }
+
+        .project-card .project-type {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .project-card h5 {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0.4rem 0;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 0.7rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* --- ACHIEVEMENTS --- */
+        .achievement-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            border-color: rgba(124,58,237,0.4);
+            transform: translateY(-4px);
+        }
+
+        .achievement-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: top;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .achievement-card .achievement-body {
+            padding: 1.25rem;
+        }
+
+        .achievement-card .achievement-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.25rem 0.6rem;
+            background: rgba(124,58,237,0.15);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: #A78BFA;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .achievement-card h5 {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0.6rem 0 0.4rem;
+        }
+
+        .achievement-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* --- SERVICES --- */
+        .service-item {
+            background: transparent !important;
+            border: none !important;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            border-color: rgba(0,212,170,0.3);
+            transform: translateY(-4px);
+        }
+
+        .service-card .service-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            margin: 0 auto 1rem;
+            font-size: 1.4rem;
+        }
+
+        .service-card h5 {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* --- TESTIMONIALS --- */
+        .testimonial-carousel .text-left,
+        .testimonial-carousel .owl-item {
+            background: transparent;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .testimonial-card .quote-icon {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card .quote-text {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card .author-name {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .testimonial-card .author-role {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* --- CONTACT --- */
+        .form-control {
+            background: var(--card-bg) !important;
+            border: 1px solid var(--card-border) !important;
+            color: var(--text-primary) !important;
+            border-radius: 10px !important;
+            padding: 0.8rem 1rem !important;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent) !important;
+            box-shadow: 0 0 0 3px rgba(0,212,170,0.1) !important;
+        }
+
+        .form-control::placeholder {
+            color: var(--text-secondary) !important;
+        }
+
+        .btn-primary {
+            background: var(--gradient) !important;
+            border: none !important;
+            color: #000 !important;
+            font-weight: 600 !important;
+            border-radius: 10px !important;
+            padding: 0.8rem 2rem !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,212,170,0.3) !important;
+        }
+
+        .btn-outline-primary {
+            border-color: var(--card-border) !important;
+            color: var(--text-primary) !important;
+            border-radius: 8px !important;
+        }
+
+        .btn-outline-primary:hover,
+        .btn-outline-primary.active {
+            background: var(--accent) !important;
+            border-color: var(--accent) !important;
+            color: #000 !important;
+        }
+
+        /* --- FOOTER --- */
+        .footer-section {
+            background: var(--card-bg) !important;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .footer-section .btn-outline-primary {
+            border-color: var(--card-border) !important;
+            color: var(--text-secondary) !important;
+        }
+
+        .footer-section .btn-outline-primary:hover {
+            background: var(--accent) !important;
+            border-color: var(--accent) !important;
+            color: #000 !important;
+        }
+
+        /* --- ABOUT INFO --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+        }
+
+        .info-item .info-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,212,170,0.1);
+            border-radius: 8px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .info-item .info-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .info-item .info-value {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* --- EDUCATION --- */
+        .edu-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .edu-card:hover {
+            border-color: rgba(0,212,170,0.3);
+        }
+
+        .edu-card .edu-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(124,58,237,0.15);
+            border-radius: 10px;
+            color: #A78BFA;
+            margin-bottom: 0.75rem;
+        }
+
+        .edu-card h6 {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .edu-card .edu-degree {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .edu-card .edu-period {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        /* --- DIVIDER --- */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: var(--card-border);
+            margin: 1rem 0;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+            .stat-grid { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+            .stat-number { font-size: 1.4rem; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+
+        /* --- FILTER BUTTONS --- */
+        #portfolio-flters .btn {
+            font-size: 0.8rem;
+            padding: 0.4rem 1rem;
+            margin: 0.2rem;
+        }
+
+        /* Back to top */
+        .back-to-top {
+            background: var(--accent) !important;
+            color: #000 !important;
+        }
+
+        /* LinkedIn badge hide */
+        .LI-profile-badge { display: none; }
+
+        /* Fix text colors */
+        h1, h2, h3, h4, h5, h6 { color: var(--text-primary); }
+        p { color: var(--text-secondary); }
+        .text-primary { color: var(--accent) !important; }
+
+        /* Glow effect */
+        .glow-accent {
+            position: relative;
+        }
+        .glow-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+    </style>
 </head>
-<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
     <div class="wrapper">
         <div class="sidebar">
             <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
-                <img class="w-100 img-fluid mb-4" src="img/profile.jpg" alt="Image">
-                <h1 class="mt-2">Owino Benson</h1>
+                <img class="w-100 img-fluid mb-4" src="img/profile.jpg" alt="Benson Owino" style="border-radius: 16px; border: 2px solid var(--card-border);">
+                <h1 class="mt-2">Benson Owino</h1>
                 <div class="mb-4" style="height: 22px;">
-                    <h4 class="typed-text-output d-inline-block text-body"></h4>
-                    <div class="typed-text d-none">Web Designer, Web Developer, Full Stack Dev, Instructor,
-                        Mathematician,</div>
+                    <h4 class="typed-text-output d-inline-block"></h4>
+                    <div class="typed-text d-none">Software Engineer, Fintech Builder, Blockchain Dev, Full Stack Dev, DevOps Engineer, Web3 Architect</div>
                 </div>
                 <div class="d-flex justify-content-center mt-auto mb-3">
-                    <a class="mx-2" target="blank" href="https://twitter.com/BensonJamari"><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="mx-2" target="blank" href="https://www.facebook.com/ben.benjail.12/"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="https://www.linkedin.com/in/benson-owino-338274189/" target="blank"><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a class="mx-2" target="blank" href="http://instagram.com/ben_jamari"><i
-                            class="fab fa-instagram"></i></a>
-                    <a class="mx-2" target="blank" href="https://www.youtube.com/channel/UC_thFTPJ541zGZg6w2Wr-zQ"><i
-                            class="fab fa-youtube"></i></a>
-                    <a class="mx-2" target="blank" href="https://github.com/benowino7"><i class="fab fa-github"></i></a>
+                    <a class="mx-2" target="_blank" href="https://twitter.com/BensonJamari"><i class="fab fa-x-twitter"></i></a>
+                    <a class="mx-2" target="_blank" href="https://www.linkedin.com/in/benson-owino-338274189/"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="mx-2" target="_blank" href="https://github.com/benowino7"><i class="fab fa-github"></i></a>
+                    <a class="mx-2" target="_blank" href="http://instagram.com/ben_jamari"><i class="fab fa-instagram"></i></a>
                 </div>
                 <div class="d-flex align-items-end justify-content-between">
-                    <a href="https://builder.zety.com/resume/final-resume?docid=e5b79ba8-fabb-477d-9202-ebb52dc3cf1c"
-                        class="btn btn-block border-right" target="blank">View Resume</a>
+                    <a href="https://www.linkedin.com/in/benson-owino-338274189/" class="btn btn-block border-right" target="_blank">View Resume</a>
                     <a href="#contact" class="btn btn-block btn-scroll">Contact Me</a>
                 </div>
-
             </div>
             <div class="sidebar-icon d-flex flex-column h-100 justify-content-center text-right">
-                <i class="fas fa-2x fa-angle-double-right text-primary"></i>
+                <i class="fas fa-2x fa-angle-double-right" style="color: var(--accent);"></i>
             </div>
         </div>
+
         <div class="content">
-            <!-- About Start -->
-            <div class="container bg-white py-5">
+            <!-- Hero Section -->
+            <div class="container py-5 hero-section">
                 <div class="row px-3">
-                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark"
-                        data-type="VERTICAL" data-vanity="benson-owino-338274189" data-version="v1"><a
-                            class="badge-base__link LI-simple-link"
-                            href="https://ke.linkedin.com/in/benson-owino-338274189?trk=profile-badge">benson owino</a>
-                    </div>
-                    <div class="col-12">
-                        <h2 class="title position-relative pb-2 mb-4">About Me</h2>
-                    </div>
-                    <div class="col-12">
-                        <p>Benson owino is a student, a teacher, a sibling, an artist and a developer.
-                            Rapid changing environment with pressure is my common coducive working environment.
-                            Collaborations and Power to socialize through communication and public presentation is my
-                            strongest fields. <br>
-                            Want an instant Web design? Reach out now. Don't mis out!
-
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="hero-badge">
+                            <span class="pulse"></span>
+                            Available for opportunities
+                        </div>
+                        <h1 class="hero-title">
+                            Building the <span style="background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Future of Finance</span><br>
+                            in Africa
+                        </h1>
+                        <p class="hero-desc">
+                            Innovative Software Engineer with expertise in fintech, blockchain, and AI-driven applications.
+                            I specialize in building scalable financial solutions that bridge global markets and local economies
+                            — from Stellar blockchain integrations to M-Pesa payment systems.
                         </p>
-                        <hr>
+                        <div class="stat-grid">
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                                <div class="stat-number">5+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">Projects Shipped</div>
+                            </div>
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                                <div class="stat-number">6+</div>
+                                <div class="stat-label">Companies</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="container py-5" id="about">
+                <div class="row px-3">
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="section-label">// about</div>
+                        <h2 class="section-title">Who I <span>Am</span></h2>
+                        <p style="max-width: 700px; line-height: 1.8; font-size: 1rem;">
+                            Results-driven Software Engineer with a proven track record of developing scalable financial solutions,
+                            including the IPL Exchange (integrating Stellar & M-Pesa) and T-Tracker (a blockchain-based education platform).
+                            I specialize in backend development, Web3 integration, and fintech architecture. My passion lies in building
+                            secure, efficient, and disruptive financial systems.
+                        </p>
+                    </div>
+                    <div class="col-12 mt-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-user"></i></div>
+                                <div>
+                                    <div class="info-label">Name</div>
+                                    <div class="info-value">Benson Owino</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div>
+                                    <div class="info-label">Degree</div>
+                                    <div class="info-value">BSc Mathematics & CS</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-briefcase"></i></div>
+                                <div>
+                                    <div class="info-label">Experience</div>
+                                    <div class="info-value">5+ Years</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-phone"></i></div>
+                                <div>
+                                    <div class="info-label">Phone</div>
+                                    <div class="info-value">+254 112 549 611</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <div class="info-label">Email</div>
+                                    <div class="info-value">bensonowino7@gmail.com</div>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <div class="info-label">Location</div>
+                                    <div class="info-value">Nairobi, Kenya</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="container py-5">
+                <div class="row px-3">
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="section-label">// skills</div>
+                        <h2 class="section-title">Tech <span>Stack</span></h2>
+                    </div>
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+                        <div class="skill-category">
+                            <div class="skill-category-label">Languages & Frameworks</div>
+                            <div>
+                                <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                                <span class="skill-tag"><i class="fab fa-js-square"></i> JavaScript</span>
+                                <span class="skill-tag"><i class="fas fa-code"></i> TypeScript</span>
+                                <span class="skill-tag"><i class="fas fa-bolt"></i> FastAPI</span>
+                                <span class="skill-tag"><i class="fab fa-python"></i> Django</span>
+                                <span class="skill-tag"><i class="fab fa-python"></i> Flask</span>
+                                <span class="skill-tag"><i class="fab fa-react"></i> React</span>
+                                <span class="skill-tag"><i class="fab fa-angular"></i> Angular</span>
+                                <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
+                                <span class="skill-tag"><i class="fas fa-gem"></i> Solidity</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-category-label">Blockchain & Fintech</div>
+                            <div>
+                                <span class="skill-tag"><i class="fas fa-star"></i> Stellar Network</span>
+                                <span class="skill-tag"><i class="fas fa-anchor"></i> Stellar Anchor</span>
+                                <span class="skill-tag"><i class="fas fa-cubes"></i> Web3</span>
+                                <span class="skill-tag"><i class="fas fa-coins"></i> Tokenization</span>
+                                <span class="skill-tag"><i class="fas fa-mobile-alt"></i> M-Pesa Integration</span>
+                                <span class="skill-tag"><i class="fas fa-exchange-alt"></i> SEP Protocols</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-category-label">DevOps & Cloud</div>
+                            <div>
+                                <span class="skill-tag"><i class="fab fa-aws"></i> AWS</span>
+                                <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
+                                <span class="skill-tag"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                                <span class="skill-tag"><i class="fab fa-linux"></i> Linux</span>
+                                <span class="skill-tag"><i class="fas fa-server"></i> Nginx</span>
+                                <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+                                <span class="skill-tag"><i class="fas fa-infinity"></i> CI/CD</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-category-label">Databases & Tools</div>
+                            <div>
+                                <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+                                <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+                                <span class="skill-tag"><i class="fas fa-fire"></i> Redis</span>
+                                <span class="skill-tag"><i class="fas fa-leaf"></i> MongoDB</span>
+                                <span class="skill-tag"><i class="fas fa-robot"></i> AI/ML</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="container py-5">
+                <div class="row px-3">
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="section-label">// experience</div>
+                        <h2 class="section-title">Career <span>Journey</span></h2>
+                    </div>
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="company">YETKENYA Limited</div>
+                                <div class="role">Software Engineer</div>
+                                <div class="period">January 2024 - February 2026 &middot; 2 yrs 2 mos &middot; Nairobi, Kenya</div>
+                                <div class="desc">Built and maintained enterprise software solutions. Developed the Roven Capital web application and integrated financial services platforms for the East African market.</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="company">ImpalaPay Limited</div>
+                                <div class="role">Senior Software Engineer</div>
+                                <div class="period">July 2023 - December 2024 &middot; 1 yr 6 mos &middot; Nairobi, Kenya</div>
+                                <div class="desc">
+                                    Spearheaded the development of the ImpalaPay app for seamless global payments. Led the creation of IPL Exchange — a web marketplace leveraging Stellar anchor technology and M-Pesa for tokenization of real-world assets. Successfully listed ImpalaPay on the Stellar Anchor Directory. Built Airtime-to-Cash and Cash-to-Airtime conversion systems.
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="company">BDigismat Limited</div>
+                                <div class="role">Senior Software Engineer</div>
+                                <div class="period">August 2022 - February 2026 &middot; 3 yrs 7 mos &middot; Nairobi, Kenya</div>
+                                <div class="desc">Delivered scalable software solutions across e-commerce, mass messaging platforms, and fintech applications. Contributed to architecture decisions and team leadership.</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="company">Nanesoft Labs Limited</div>
+                                <div class="role">Senior Software Engineer</div>
+                                <div class="period">January 2023 - February 2025 &middot; 2 yrs 2 mos &middot; Nairobi, Kenya</div>
+                                <div class="desc">Created T-Tracker, a groundbreaking blockchain application using Web3, Solidity, and crypto to bridge gaps in the education system. Led development of the Stellar anchor infrastructure and token platform. Won recognition at 2022 Moringa School x Safaricom hackathon.</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="company">Nanesoft Labs Limited</div>
+                                <div class="role">Software Developer & Operations Lead</div>
+                                <div class="period">August 2021 - September 2023 &middot; 2 yrs 2 mos &middot; Nairobi, Kenya</div>
+                                <div class="desc">Provided real-world software solutions. Led operations and development teams to deliver client projects including community platforms and web applications.</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="company">Roven Capital</div>
+                                <div class="role">Software Engineer</div>
+                                <div class="period">May 2023 - November 2024 &middot; 1 yr 7 mos &middot; Kenya</div>
+                                <div class="desc">Developed the Roven Capital web application for investment management and financial services in the East African region.</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="company">KCB Bank Group</div>
+                                <div class="role">Field Officer</div>
+                                <div class="period">November 2021 - February 2022 &middot; 4 mos &middot; Nairobi, Kenya</div>
+                                <div class="desc">Worked on the Inua Jamii government program, facilitating financial inclusion services for beneficiaries.</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="company">Olympic Vocational Training Center</div>
+                                <div class="role">Computer Technology Instructor</div>
+                                <div class="period">January 2021 - January 2022 &middot; 1 yr 1 mo &middot; Nairobi, Kenya</div>
+                                <div class="desc">Taught computer technology courses including programming fundamentals, web development, and digital literacy.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Section -->
+            <div class="container py-5">
+                <div class="row px-3">
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="section-label">// education</div>
+                        <h2 class="section-title"><span>Education</span></h2>
+                    </div>
+                    <div class="col-md-6 mb-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="edu-card">
+                            <div class="edu-icon"><i class="fas fa-university"></i></div>
+                            <h6>Taita Taveta University</h6>
+                            <div class="edu-degree">BSc Mathematics & Computer Science</div>
+                            <div class="edu-period">2019</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="edu-card">
+                            <div class="edu-icon"><i class="fas fa-laptop-code"></i></div>
+                            <h6>Moringa School</h6>
+                            <div class="edu-degree">Computer Software Development</div>
+                            <div class="edu-period">August 2019 - August 2021</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements Section -->
+            <div class="container py-5">
+                <div class="row px-3">
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="section-label">// achievements</div>
+                        <h2 class="section-title">Key <span>Milestones</span></h2>
+                    </div>
+                    <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="achievement-card">
+                            <img src="img/stellar-anchor.png" alt="ImpalaPay on Stellar Anchor Directory">
+                            <div class="achievement-body">
+                                <div class="achievement-badge"><i class="fas fa-star"></i> Stellar Network</div>
+                                <h5>ImpalaPay Listed on Stellar Anchor Directory</h5>
+                                <p>Successfully integrated and listed ImpalaPay as a verified anchor on the Stellar network directory (anchors.stellar.org), enabling USDC and USD fiat on/off ramps for the Kenyan market.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="achievement-card">
+                            <img src="img/cma-sandbox.png" alt="CMA Regulatory Sandbox">
+                            <div class="achievement-body">
+                                <div class="achievement-badge"><i class="fas fa-shield-alt"></i> Regulatory</div>
+                                <h5>Yeshara Tokens — CMA Regulatory Sandbox</h5>
+                                <p>Participated in the licensing process for Yeshara Tokens Limited's admission into Kenya's Capital Markets Authority (CMA) regulatory sandbox for a 12-month trial to test blockchain-based tokenization of real estate and treasury bonds.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="achievement-card">
+                            <img src="img/FB_IMG_1656591504247.jpg" alt="Moringa School x Safaricom Hackathon">
+                            <div class="achievement-body">
+                                <div class="achievement-badge"><i class="fas fa-trophy"></i> Award</div>
+                                <h5>Moringa School x Safaricom Hackathon 2022</h5>
+                                <p>Recognized for innovative blockchain work at the 2022 hackathon challenge organized by Moringa School in partnership with Safaricom.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="achievement-card">
+                            <img src="img/portfolio-1.png" alt="IPL Exchange">
+                            <div class="achievement-body">
+                                <div class="achievement-badge"><i class="fas fa-rocket"></i> Product</div>
+                                <h5>IPL Exchange — Stellar + M-Pesa Bridge</h5>
+                                <p>Built a cutting-edge web exchange marketplace leveraging Stellar anchor technology with M-Pesa integration, enabling tokenization of real-world assets and seamless crypto on/off ramps.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <div class="container py-5">
+                <div class="row px-3">
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="section-label">// services</div>
+                        <h2 class="section-title">What I <span>Do</span></h2>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-card">
+                            <div class="service-icon" style="background: rgba(0,212,170,0.1); color: var(--accent);">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <h5>Fintech Solutions</h5>
+                            <p>Payment integrations, M-Pesa APIs, STK push, airtime exchanges, and financial platform development.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-card">
+                            <div class="service-icon" style="background: rgba(124,58,237,0.15); color: #A78BFA;">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <h5>Blockchain & Web3</h5>
+                            <p>Stellar anchor integration, smart contracts, tokenization, crypto exchanges, and DeFi protocols.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-card">
+                            <div class="service-icon" style="background: rgba(0,123,255,0.15); color: #60A5FA;">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h5>Full Stack Development</h5>
+                            <p>End-to-end web applications with Python/Django/FastAPI backends and modern JavaScript frontends.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-card">
+                            <div class="service-icon" style="background: rgba(253,126,20,0.15); color: #FB923C;">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h5>DevOps & Cloud</h5>
+                            <p>AWS deployment, Docker containerization, CI/CD pipelines, and infrastructure automation.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-card">
+                            <div class="service-icon" style="background: rgba(239,68,68,0.15); color: #F87171;">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h5>API Development</h5>
+                            <p>RESTful APIs, API documentation, third-party integrations, and microservices architecture.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-card">
+                            <div class="service-icon" style="background: rgba(34,197,94,0.15); color: #4ADE80;">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h5>Tech Training</h5>
+                            <p>Computer technology instruction, programming mentorship, and technical team leadership.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio / Projects Section -->
+            <div class="container py-5">
+                <div class="row px-3">
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="section-label">// portfolio</div>
+                        <h2 class="section-title">Work <span>Gallery</span></h2>
+                    </div>
+                    <div class="col-12 mb-4" data-aos="fade-up">
                         <div class="row">
-                            <div class="col-sm-6 py-1">
-                                <h5 class="d-inline text-primary">Name:</h5> Owino Benson
+                            <!-- Craddle Voices -->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img class="project-img" src="img/portfolio-1.png" alt="Craddle Voices">
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-type">Fintech Platform</div>
+                                        <h5>Craddle Voices</h5>
+                                        <p>Financial services and communication platform for businesses.</p>
+                                        <a href="https://docs.cradlevoices.com/" target="_blank" class="project-link">
+                                            Visit site <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-sm-6 py-1">
-                                <h5 class="d-inline text-primary">Diploma:</h5> Web Development
-                            </div>
-                            <div class="col-sm-6 py-1">
-                                <h5 class="d-inline text-primary">Experience:</h5> 2+ Years
-                            </div>
-                            <div class="col-sm-6 py-1">
-                                <h5 class="d-inline text-primary">Phone:</h5> +254 112 549 611
-                            </div>
-                            <div class="col-sm-6 py-1">
-                                <h5 class="d-inline text-primary">Email:</h5> bensonowino7@gmail.com
-                            </div>
-                            <div class="col-sm-6 py-1">
-                                <h5 class="d-inline text-primary">Address:</h5> 0100 Kibera drive, Nairobi, Kenya
-                            </div>
-                            <div class="col-sm-6 py-1">
-                                <h5 class="d-inline text-primary">Freelance:</h5> Available
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- About End -->
 
-            <!-- Skills Start -->
-            <div class="container bg-white py-5">
-                <div class="row px-3">
-                    <div class="col-12">
-                        <h2 class="title position-relative pb-2 mb-4">Skills</h2>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">HTML</p>
-                                <p class="mb-2">95%</p>
+                            <!-- Genio Pago -->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img class="project-img" src="img/portfolio-2.png" alt="Genio Pago">
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-type">Payment Platform</div>
+                                        <h5>Genio Pago</h5>
+                                        <p>Payment processing documentation and integration platform.</p>
+                                        <a href="https://docs.genio-pago.com/" target="_blank" class="project-link">
+                                            Visit site <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">CSS</p>
-                                <p class="mb-2">85%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">Python</p>
-                                <p class="mb-2">95%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="95"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">PSQL</p>
-                                <p class="mb-2">90%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="90"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">MYSQL</p>
-                                <p class="mb-2">80%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="80"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">Django</p>
-                                <p class="mb-2">95%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="95"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">Javascript</p>
-                                <p class="mb-2">70%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">Angular JS</p>
-                                <p class="mb-2">80%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="80"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">Flask</p>
-                                <p class="mb-2">80%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="80"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">Git</p>
-                                <p class="mb-2">90%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="90"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">React Js</p>
-                                <p class="mb-2">60%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        <div class="skill mb-4">
-                            <div class="d-flex justify-content-between">
-                                <p class="mb-2">PHP</p>
-                                <p class="mb-2">15%</p>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="15"
-                                    aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Skills End -->
 
+                            <!-- Top Dubai Jobs -->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img class="project-img" src="img/portfolio-3.png" alt="Top Dubai Jobs">
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-type">Job Platform</div>
+                                        <h5>Top Dubai Jobs</h5>
+                                        <p>Job seeker platform connecting talent with opportunities in Dubai.</p>
+                                        <a href="https://jobseeker.topdubaijobs.io/" target="_blank" class="project-link">
+                                            Visit site <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
-            <!-- Education Start -->
-            <div class="container bg-white py-5">
-                <div class="row px-3">
-                    <div class="col-12">
-                        <h2 class="title position-relative pb-2 mb-4">Expericence</h2>
-                    </div>
-                    <div class="col-12">
-                        <div class="border-left border-primary pt-2 pl-4 ml-2">
-                            <div class="position-relative mb-4">
-                                <i class="fa fa-arrow-right text-primary position-absolute"
-                                    style="top: 3px; left: -24px;"></i>
-                                <h5 class="mb-1">Software developer & Communications lead</h5>
-                                <p class="mb-2">Nanesoft Labs | <small> August, 2021 - current</small></p>
-                                <p>I work as a freelancer </p>
+                            <!-- Roven Capital -->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img class="project-img" src="img/portfolio-4.png" alt="Roven Capital">
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-type">Investment Platform</div>
+                                        <h5>Roven Capital</h5>
+                                        <p>Web application for investment management and financial services.</p>
+                                        <a href="https://roven-webapp.yet-kenya.com/dashboard" target="_blank" class="project-link">
+                                            Visit site <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="position-relative mb-4">
-                                <i class="fa fa-arrow-right text-primary position-absolute"
-                                    style="top: 3px; left: -24px;"></i>
-                                <h5 class="mb-1">Field Officer</h5>
-                                <p class="mb-2">KCB Bank | <small> November 2021 - Feb 2022</small></p>
-                                <p>Worked in the Inua Jamii program in a short term contract </p>
-                            </div>
-                            <div class="position-relative mb-4">
-                                <i class="fa fa-arrow-right text-primary position-absolute"
-                                    style="top: 3px; left: -24px;"></i>
-                                <h5 class="mb-1">Math Tutor</h5>
-                                <p class="mb-2">Freelance | <small> Feb 2019 - july 2022</small></p>
-                                <p>Initiated a home schooling tution classes </p>
-                            </div>
-                            <div class="position-relative mb-4">
-                                <i class="fa fa-arrow-right text-primary position-absolute"
-                                    style="top: 3px; left: -24px;"></i>
-                                <h5 class="mb-1">Web Designer Student</h5>
-                                <p class="mb-2">Moringa School | <small>2019 - 2021</small></p>
-                                <p>A proud interactive moringa school student </p>
-                            </div>
-                            <div class="position-relative mb-4">
-                                <i class="fa fa-arrow-right text-primary position-absolute"
-                                    style="top: 3px; left: -24px;"></i>
-                                <h5 class="mb-1">Computer Instructor</h5>
-                                <p class="mb-2">Olympic Vocational Centre | <small>Jan 2021 - Jan 2022</small></p>
-                                <p>Computer instructor by proffesion and under Olympic Vocation Management, teaching as
-                                    a part time job</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Education End -->
 
-            <!-- Services Start -->
-            <div class="container bg-white pt-5 pb-3">
-                <div class="row px-3">
-                    <div class="col-12">
-                        <h2 class="title position-relative pb-2 mb-4">Services</h2>
-                    </div>
-                    <div class="col-md-6 service-item text-center mb-3">
-                        <i class="fa fa-2x fa-laptop-code mx-auto mb-4"></i>
-                        <h5 class="mb-2">Web Design</h5>
-                        <p>Contact me for web design services and achive the best from us as we take you through the
-                            process</p>
-                    </div>
-                    <div class="col-md-6 service-item text-center mb-3">
-                        <i class="fab fa-2x fa-android mx-auto mb-4"></i>
-                        <h5 class="mb-2">Apps Development</h5>
-                        <p>Contact me for Connections to the best app designers and achive the best from the best for I
-                            only offer the best</p>
-                    </div>
-                    <div class="col-md-6 service-item text-center mb-3">
-                        <i class="fa fa-2x fa-search mx-auto mb-4"></i>
-                        <h5 class="mb-2">Compuer</h5>
-                        <p>For services on computer lessons, Contact me through may email and more info will be provided
-                            to your sutisfuction</p>
-                    </div>
-                    <div class="col-md-6 service-item text-center mb-3">
-                        <i class="fa fa-2x fa-edit mx-auto mb-4"></i>
-                        <h5 class="mb-2">Content Creating</h5>
-                        <p>We offer content creation services for online media platforms under Jamope Tv Kenya Youtube
-                            channel</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Services End -->
+                            <!-- Yeshara Tokens -->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img class="project-img" src="img/cma-sandbox.png" alt="Yeshara Tokens">
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-type">Blockchain / Tokenization</div>
+                                        <h5>Yeshara Tokens</h5>
+                                        <p>Blockchain-powered platform for tokenizing real estate and assets, admitted to CMA regulatory sandbox.</p>
+                                        <a href="https://www.yeshara.com/" target="_blank" class="project-link">
+                                            Visit site <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <!-- Token Platform -->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img class="project-img" src="img/stellar-anchor.png" alt="Token Platform">
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-type">Blockchain Platform</div>
+                                        <h5>Nanesoft Token Platform</h5>
+                                        <p>Token management and Stellar anchor platform with login authentication.</p>
+                                        <a href="https://tkn.nanesoft-lab.com/login/" target="_blank" class="project-link">
+                                            Visit site <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
-            <!-- Portfolio Start -->
-            <div class="container bg-white pt-5 pb-3">
-                <div class="row px-3">
-                    <div class="col-12">
-                        <h2 class="title position-relative pb-2 mb-4">Portfolio</h2>
-                    </div>
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-12 text-center mb-2">
-                                <ul class="list-inline mb-4" id="portfolio-flters">
-                                    <li class="btn btn-outline-primary active" data-filter="*"><i
-                                            class="fa fa-star mr-2"></i>All</li>
-                                    <li class="btn btn-outline-primary" data-filter=".last"><i
-                                            class="fa fa-gift mr-2"></i>Awards</li>
-                                    <li class="btn btn-outline-primary" data-filter=".first"><i
-                                            class="fa fa-laptop-code mr-2"></i>Design</li>
-                                    <li class="btn btn-outline-primary" data-filter=".second"><i
-                                            class="fa fa-mobile-alt mr-2"></i>Development</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row portfolio-container">
-                            <div class="col-md-6 mb-4 portfolio-item first">
-                                <div class="position-relative overflow-hidden mb-2">
-                                    <img class="img-fluid w-100" src="img/portfolio-1.png" alt="">
-                                    <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                        <a href="img/portfolio-1.png" data-lightbox="portfolio">
-                                            <i class="fa fa-4x fa-plus text-white"></i>
+                            <!-- Stellar Anchor -->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img class="project-img" src="img/stellar-anchor.png" alt="Stellar Anchor">
+                                    </div>
+                                    <div class="project-body">
+                                        <div class="project-type">Stellar SEP Server</div>
+                                        <h5>Nanesoft Stellar Anchor</h5>
+                                        <p>Stellar TOML configuration and anchor server for crypto on/off ramps.</p>
+                                        <a href="https://anchor.nanesoft-lab.com/.well-known/stellar.toml" target="_blank" class="project-link">
+                                            View TOML <i class="fas fa-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-4 portfolio-item second">
-                                <div class="position-relative overflow-hidden mb-2">
-                                    <img class="img-fluid w-100" src="img/portfolio-2.png" alt="">
-                                    <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                        <a href="img/portfolio-2.png" data-lightbox="portfolio">
-                                            <i class="fa fa-4x fa-plus text-white"></i>
-                                        </a>
+
+                            <!-- Young Nesher -->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="project-card">
+                                    <div class="project-img-wrapper">
+                                        <img class="project-img" src="img/portfolio-3.png" alt="Young Nesher">
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4 portfolio-item first">
-                                <div class="position-relative overflow-hidden mb-2">
-                                    <img class="img-fluid w-100" src="img/portfolio-3.png" alt="">
-                                    <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                        <a href="img/portfolio-3.png" data-lightbox="portfolio">
-                                            <i class="fa fa-4x fa-plus text-white"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4 portfolio-item second">
-                                <div class="position-relative overflow-hidden mb-2">
-                                    <img class="img-fluid w-100" src="img/portfolio-4.png" alt="">
-                                    <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                        <a href="img/portfolio-4.png" data-lightbox="portfolio">
-                                            <i class="fa fa-4x fa-plus text-white"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4 portfolio-item last">
-                                <div class="position-relative overflow-hidden mb-2">
-                                    <img class="img-fluid w-100" src="img/FB_IMG_1656591504247.jpg" alt="" style="height:30vh;">
-                                    <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                        <a href="img/FB_IMG_1656591504247.jpg" data-lightbox="portfolio">
-                                            <i class="fa fa-4x fa-plus text-white"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4 portfolio-item last">
-                                <div class="position-relative overflow-hidden mb-2">
-                                    <img class="img-fluid w-100" src="img/image_276cc78a-07e5-4e01-a6ab-61a3403522bf20220630_185820.jpg" alt="" style="height:30vh;">
-                                    <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                        <a href="img/image_276cc78a-07e5-4e01-a6ab-61a3403522bf20220630_185820.jpg" data-lightbox="portfolio">
-                                            <i class="fa fa-4x fa-plus text-white"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4 portfolio-item last">
-                                <div class="position-relative overflow-hidden mb-2">
-                                    <img class="img-fluid w-100" src="img/image_cf7fc59c-1b2b-4c11-bd65-f34be1a5266320220701_085636.jpg" alt="" style="height:30vh;">
-                                    <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                        <a href="img/image_cf7fc59c-1b2b-4c11-bd65-f34be1a5266320220701_085636.jpg" data-lightbox="portfolio">
-                                            <i class="fa fa-4x fa-plus text-white"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6 mb-4 portfolio-item last">
-                                <div class="position-relative overflow-hidden mb-2">
-                                    <img class="img-fluid w-100" src="img/IMG-20220630-WA0003.jpg" alt="" style="height:30vh;">
-                                    <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                        <a href="img/IMG-20220630-WA0003.jpg" data-lightbox="portfolio">
-                                            <i class="fa fa-4x fa-plus text-white"></i>
+                                    <div class="project-body">
+                                        <div class="project-type">Web Application</div>
+                                        <h5>Young Nesher</h5>
+                                        <p>Community and business web platform.</p>
+                                        <a href="https://young-nesher.com/" target="_blank" class="project-link">
+                                            Visit site <i class="fas fa-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -439,55 +1375,52 @@
                     </div>
                 </div>
             </div>
-            <!-- Portfolio End -->
-            <hr>
-            <a href="https://github.com/benowino7" class="btn btn-outline-succes" target="blank">Github profile</a>
-            <hr>
 
-            <!-- Testimonial Start -->
-            <div class="container bg-white py-5">
+            <!-- Testimonial Section -->
+            <div class="container py-5">
                 <div class="row px-3">
-                    <div class="col-12">
-                        <h2 class="title position-relative pb-2 mb-4">Testimonial</h2>
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="section-label">// testimonials</div>
+                        <h2 class="section-title">What People <span>Say</span></h2>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="100">
                         <div class="owl-carousel testimonial-carousel">
                             <div class="text-left">
-                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <h4 class="text-body mb-4">I subscribed and contucted him to create my personal website
-                                    and i was pleased with the responce</h4>
-                                <div class="d-flex align-items-center">
-                                    <img class="img-fluid" src="img/testimonial-2.jpg"
-                                        style="width: 60px; height: 60px;">
-                                    <div class="pl-3">
-                                        <h5 class="text-primary m-0">Tina Luseka</h5>
-                                        <i>Media & Journalism</i>
+                                <div class="testimonial-card">
+                                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                    <div class="quote-text">I subscribed and contacted him to create my personal website and I was pleased with the response. Professional, fast, and high quality work.</div>
+                                    <div class="d-flex align-items-center">
+                                        <img class="img-fluid" src="img/testimonial-2.jpg" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--card-border);">
+                                        <div class="pl-3">
+                                            <div class="author-name">Tina Luseka</div>
+                                            <div class="author-role">Media & Journalism</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-left">
-                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <h4 class="text-body mb-4">He's my most beloved friend and an instructor to many things
-                                    not only computer</h4>
-                                <div class="d-flex align-items-center">
-                                    <img class="img-fluid" src="img/testimonial-1.jpg"
-                                        style="width: 60px; height: 60px;">
-                                    <div class="pl-3">
-                                        <h5 class="text-primary m-0">Clinton Nemsi</h5>
-                                        <i>Chairperson, Jamope tv</i>
+                                <div class="testimonial-card">
+                                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                    <div class="quote-text">He's my most beloved friend and an instructor to many things not only computer. Dedicated, passionate, and always ready to help others grow.</div>
+                                    <div class="d-flex align-items-center">
+                                        <img class="img-fluid" src="img/testimonial-1.jpg" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--card-border);">
+                                        <div class="pl-3">
+                                            <div class="author-name">Clinton Nemsi</div>
+                                            <div class="author-role">Chairperson, Jamope TV</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-left">
-                                <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <h4 class="text-body mb-4">I needed a website urgently for sure and he made it happen.
-                                    He also connected me to other app developers to finalize on it</h4>
-                                <div class="d-flex align-items-center">
-                                    <img class="img-fluid" src="img/testimonial-3.jpg"
-                                        style="width: 60px; height: 60px;">
-                                    <div class="pl-3">
-                                        <h5 class="text-primary m-0">Joel Orwa</h5>
-                                        <i>Photographer</i>
+                                <div class="testimonial-card">
+                                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                                    <div class="quote-text">I needed a website urgently and he made it happen. He also connected me to other app developers to finalize on it. Excellent network and delivery.</div>
+                                    <div class="d-flex align-items-center">
+                                        <img class="img-fluid" src="img/testimonial-3.jpg" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--card-border);">
+                                        <div class="pl-3">
+                                            <div class="author-name">Joel Orwa</div>
+                                            <div class="author-role">Photographer</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -495,89 +1428,72 @@
                     </div>
                 </div>
             </div>
-            <!-- Testimonial End -->
 
-
-
-
-            <!-- Contact Start -->
-            <div class="container bg-white py-5" id="contact">
+            <!-- Contact Section -->
+            <div class="container py-5" id="contact">
                 <div class="row px-3">
-                    <div class="col-12">
-                        <h2 class="title position-relative pb-2 mb-4">Contact Me</h2>
+                    <div class="col-12" data-aos="fade-up">
+                        <div class="section-label">// contact</div>
+                        <h2 class="section-title">Get In <span>Touch</span></h2>
+                        <p style="max-width: 500px; margin-bottom: 2rem;">Have a project in mind or want to collaborate? Let's build something great together.</p>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="100">
                         <div class="contact-form">
                             <div id="success"></div>
                             <form name="sentMessage" id="contactForm" novalidate="novalidate">
                                 <div class="form-row">
-                                    <div class="control-group col-sm-6">
-                                        <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
+                                    <div class="control-group col-sm-6 mb-3">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name"
                                             required="required"
                                             data-validation-required-message="Please enter your name" />
                                         <p class="help-block text-danger"></p>
                                     </div>
-                                    <div class="control-group col-sm-6">
-                                        <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
+                                    <div class="control-group col-sm-6 mb-3">
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email"
                                             required="required"
                                             data-validation-required-message="Please enter your email" />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
-                                <div class="control-group">
-                                    <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
+                                <div class="control-group mb-3">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject"
                                         required="required" data-validation-required-message="Please enter a subject" />
                                     <p class="help-block text-danger"></p>
                                 </div>
-                                <div class="control-group">
-                                    <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
+                                <div class="control-group mb-3">
+                                    <textarea class="form-control" rows="5" id="message" placeholder="Message"
                                         required="required"
                                         data-validation-required-message="Please enter your message"></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Send
-                                        Message</button>
+                                    <button class="btn btn-primary" type="submit" id="sendMessageButton">
+                                        Send Message <i class="fas fa-paper-plane ml-2"></i>
+                                    </button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Contact End -->
 
-            <!-- Footer Start -->
-            <div class="container-fluid bg-white pt-5 px-0">
-                <div class="container bg-dark text-light text-center py-5">
+            <!-- Footer -->
+            <div class="container-fluid pt-5 px-0">
+                <div class="footer-section text-center py-5">
                     <div class="d-flex justify-content-center mb-4">
-                        <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/BensonJamari"
-                            target="blank"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-primary btn-square mr-2" target="blank"
-                            href="https://www.facebook.com/ben.benjail.12/"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-primary btn-square mr-2" target="blank"
-                            href="https://www.linkedin.com/in/benson-owino-338274189/"><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-primary btn-square mr-2" href="http://instagram.com/ben_jamari"
-                            target="blank"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-primary btn-square mr-2" target="blank"
-                            href="https://github.com/benowino7"><i class="fab fa-github"></i></a>
+                        <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/BensonJamari" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                        <a class="btn btn-outline-primary btn-square mr-2" target="_blank" href="https://www.linkedin.com/in/benson-owino-338274189/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-primary btn-square mr-2" target="_blank" href="https://github.com/benowino7"><i class="fab fa-github"></i></a>
+                        <a class="btn btn-outline-primary btn-square mr-2" href="http://instagram.com/ben_jamari" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
-                    <div class="d-flex justify-content-center mb-3">
-                        <a class="text-white" href="#">Privacy</a>
-                        <span class="px-3">|</span>
-                        <a class="text-white" href="#">Terms</a>
-                        <span class="px-3">|</span>
-                        <a class="text-white" href="#">FAQs</a>
-                        <span class="px-3">|</span>
-                        <a class="text-white" href="#contact">Help</a>
-                    </div>
-                    <p class="m-0">&copy; All Rights Reserved. Designed by <a href="https://github.com/benowino7"
-                            target="blank">Owino</a></p>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;">
+                        &copy; 2024 Benson Owino. All Rights Reserved.
+                    </p>
                 </div>
             </div>
-            <!-- Footer End -->
         </div>
     </div>
+
     <!-- Back to Top -->
     <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
@@ -590,6 +1506,17 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+    </script>
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
