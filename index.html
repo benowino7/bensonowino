@@ -1022,6 +1022,44 @@
             background: var(--gradient);
             border-radius: 2px;
         }
+
+        /* ===== FULL-BLEED LAYOUT FIXES ===== */
+        /* Template caps the whole layout at 1140px; let it fill the viewport */
+        .wrapper { max-width: 100% !important; }
+
+        /* Inner Bootstrap containers also cap content — let sections use the
+           full content width, with comfortable padding instead of a hard cap */
+        .content .container,
+        .content .container-fluid {
+            max-width: 100% !important;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        /* The template's fixed top/bottom masking bars are hardcoded #F2F2F2,
+           which renders as white strips in dark mode. Make them follow the theme. */
+        .wrapper .content::before,
+        .wrapper .content::after {
+            background: var(--dark-bg) !important;
+        }
+
+        @media (min-width: 768px) {
+            /* Template removes the content's right padding; restore it so the
+               content doesn't run flush against the right edge */
+            .wrapper .content {
+                padding-right: 30px !important;
+            }
+        }
+
+        /* On very wide screens, keep line lengths sane without leaving the
+           page looking empty: a generous max width, aligned to the content */
+        @media (min-width: 1800px) {
+            .content .container,
+            .content .container-fluid {
+                max-width: 1600px !important;
+                margin-left: 0;
+            }
+        }
     </style>
 </head>
 
