@@ -116,14 +116,122 @@
 
     <style>
         :root {
-            --accent: #00D4AA;
-            --accent-2: #7C3AED;
+            /* dark surfaces (default) */
             --dark-bg: #0A0A0F;
             --card-bg: #12121A;
             --card-border: #1E1E2E;
             --text-primary: #EAEAF0;
             --text-secondary: #8888A0;
-            --gradient: linear-gradient(135deg, #00D4AA, #7C3AED);
+
+            /* accent palette (green by default) */
+            --accent: #00D4AA;
+            --accent-rgb: 0,212,170;
+            --accent-2: #7C3AED;
+            --accent2-rgb: 124,58,237;
+            --gradient: linear-gradient(135deg, var(--accent), var(--accent-2));
+        }
+
+        /* ===== ACCENT THEMES ===== */
+        [data-accent="blue"] {
+            --accent: #3B82F6;
+            --accent-rgb: 59,130,246;
+            --accent-2: #06B6D4;
+            --accent2-rgb: 6,182,212;
+        }
+        [data-accent="orange"] {
+            --accent: #F97316;
+            --accent-rgb: 249,115,22;
+            --accent-2: #F59E0B;
+            --accent2-rgb: 245,158,11;
+        }
+        [data-accent="red"] {
+            --accent: #EF4444;
+            --accent-rgb: 239,68,68;
+            --accent-2: #F97316;
+            --accent2-rgb: 249,115,22;
+        }
+
+        /* ===== LIGHT MODE ===== */
+        [data-theme="light"] {
+            --dark-bg: #F6F7FB;
+            --card-bg: #FFFFFF;
+            --card-border: #E3E4ED;
+            --text-primary: #15151F;
+            --text-secondary: #5C5C70;
+        }
+        [data-theme="light"] body { background: var(--dark-bg) !important; }
+        [data-theme="light"] .modern-card,
+        [data-theme="light"] .project-card,
+        [data-theme="light"] .achievement-card,
+        [data-theme="light"] .service-card,
+        [data-theme="light"] .testimonial-card,
+        [data-theme="light"] .stat-item,
+        [data-theme="light"] .info-item,
+        [data-theme="light"] .edu-card,
+        [data-theme="light"] .skill-tag,
+        [data-theme="light"] .form-control {
+            box-shadow: 0 1px 3px rgba(16,16,32,0.04);
+        }
+        [data-theme="light"] .modern-card:hover,
+        [data-theme="light"] .project-card:hover {
+            box-shadow: 0 20px 40px rgba(16,16,32,0.10);
+        }
+
+        /* ===== THEME SWITCHER UI ===== */
+        .theme-switcher {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.6rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
+        .theme-switcher .mode-toggle {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 50%;
+            background: rgba(var(--accent-rgb),0.12);
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.25s ease;
+        }
+        .theme-switcher .mode-toggle:hover { background: rgba(var(--accent-rgb),0.22); }
+        .theme-switcher .swatches {
+            display: flex;
+            gap: 0.35rem;
+            padding-left: 0.5rem;
+            border-left: 1px solid var(--card-border);
+        }
+        .theme-switcher .swatch {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            padding: 0;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .theme-switcher .swatch:hover { transform: scale(1.15); }
+        .theme-switcher .swatch.active { border-color: var(--text-primary); }
+        .theme-switcher .swatch[data-set="green"]  { background: #00D4AA; }
+        .theme-switcher .swatch[data-set="blue"]   { background: #3B82F6; }
+        .theme-switcher .swatch[data-set="orange"] { background: #F97316; }
+        .theme-switcher .swatch[data-set="red"]    { background: #EF4444; }
+        @media (max-width: 768px) {
+            .theme-switcher { top: 10px; right: 10px; padding: 0.3rem 0.45rem; gap: 0.35rem; }
+            .theme-switcher .swatch { width: 17px; height: 17px; }
+            .theme-switcher .mode-toggle { width: 30px; height: 30px; }
         }
 
         * { box-sizing: border-box; }
@@ -262,7 +370,7 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(var(--accent-rgb),0.08) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -272,8 +380,8 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.4rem 1rem;
-            background: rgba(0,212,170,0.1);
-            border: 1px solid rgba(0,212,170,0.2);
+            background: rgba(var(--accent-rgb),0.1);
+            border: 1px solid rgba(var(--accent-rgb),0.2);
             border-radius: 50px;
             font-size: 0.8rem;
             color: var(--accent);
@@ -358,7 +466,7 @@
         }
 
         .modern-card:hover {
-            border-color: rgba(0,212,170,0.3);
+            border-color: rgba(var(--accent-rgb),0.3);
             transform: translateY(-4px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
@@ -468,7 +576,7 @@
 
         .skill-tag:hover {
             border-color: var(--accent);
-            background: rgba(0,212,170,0.08);
+            background: rgba(var(--accent-rgb),0.08);
             transform: translateY(-2px);
         }
 
@@ -501,7 +609,7 @@
         }
 
         .project-card:hover {
-            border-color: rgba(0,212,170,0.3);
+            border-color: rgba(var(--accent-rgb),0.3);
             transform: translateY(-6px);
             box-shadow: 0 24px 48px rgba(0,0,0,0.4);
         }
@@ -590,7 +698,7 @@
         }
 
         .achievement-card:hover {
-            border-color: rgba(124,58,237,0.4);
+            border-color: rgba(var(--accent2-rgb),0.4);
             transform: translateY(-4px);
         }
 
@@ -611,7 +719,7 @@
             align-items: center;
             gap: 0.3rem;
             padding: 0.25rem 0.6rem;
-            background: rgba(124,58,237,0.15);
+            background: rgba(var(--accent2-rgb),0.15);
             border-radius: 4px;
             font-size: 0.7rem;
             color: #A78BFA;
@@ -650,7 +758,7 @@
         }
 
         .service-card:hover {
-            border-color: rgba(0,212,170,0.3);
+            border-color: rgba(var(--accent-rgb),0.3);
             transform: translateY(-4px);
         }
 
@@ -725,7 +833,7 @@
 
         .form-control:focus {
             border-color: var(--accent) !important;
-            box-shadow: 0 0 0 3px rgba(0,212,170,0.1) !important;
+            box-shadow: 0 0 0 3px rgba(var(--accent-rgb),0.1) !important;
         }
 
         .form-control::placeholder {
@@ -744,7 +852,7 @@
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,212,170,0.3) !important;
+            box-shadow: 0 8px 24px rgba(var(--accent-rgb),0.3) !important;
         }
 
         .btn-outline-primary {
@@ -801,7 +909,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0,212,170,0.1);
+            background: rgba(var(--accent-rgb),0.1);
             border-radius: 8px;
             color: var(--accent);
             font-size: 0.85rem;
@@ -831,7 +939,7 @@
         }
 
         .edu-card:hover {
-            border-color: rgba(0,212,170,0.3);
+            border-color: rgba(var(--accent-rgb),0.3);
         }
 
         .edu-card .edu-icon {
@@ -840,7 +948,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(124,58,237,0.15);
+            background: rgba(var(--accent2-rgb),0.15);
             border-radius: 10px;
             color: #A78BFA;
             margin-bottom: 0.75rem;
@@ -918,6 +1026,19 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <!-- Theme Switcher -->
+    <div class="theme-switcher" role="group" aria-label="Theme switcher">
+        <button class="mode-toggle" id="modeToggle" type="button" title="Toggle light / dark" aria-label="Toggle light or dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <div class="swatches">
+            <button class="swatch" type="button" data-set="green"  title="Green theme"  aria-label="Green accent"></button>
+            <button class="swatch" type="button" data-set="blue"   title="Blue theme"   aria-label="Blue accent"></button>
+            <button class="swatch" type="button" data-set="orange" title="Orange theme" aria-label="Orange accent"></button>
+            <button class="swatch" type="button" data-set="red"    title="Red theme"    aria-label="Red accent"></button>
+        </div>
+    </div>
+
     <div class="wrapper">
         <div class="sidebar">
             <div class="sidebar-text d-flex flex-column h-100 justify-content-center text-center">
@@ -1297,7 +1418,7 @@
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-card">
-                            <div class="service-icon" style="background: rgba(0,212,170,0.1); color: var(--accent);">
+                            <div class="service-icon" style="background: rgba(var(--accent-rgb),0.1); color: var(--accent);">
                                 <i class="fas fa-coins"></i>
                             </div>
                             <h5>Fintech Solutions</h5>
@@ -1306,7 +1427,7 @@
                     </div>
                     <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-card">
-                            <div class="service-icon" style="background: rgba(124,58,237,0.15); color: #A78BFA;">
+                            <div class="service-icon" style="background: rgba(var(--accent2-rgb),0.15); color: #A78BFA;">
                                 <i class="fas fa-cubes"></i>
                             </div>
                             <h5>Blockchain & Web3</h5>
@@ -1362,7 +1483,7 @@
 
                     <!-- Featured Client Engagement -->
                     <div class="col-12 mb-4" data-aos="fade-up">
-                        <div class="modern-card" style="border-color: rgba(0,212,170,0.3);">
+                        <div class="modern-card" style="border-color: rgba(var(--accent-rgb),0.3);">
                             <div class="d-flex align-items-center mb-2" style="gap: 0.6rem; flex-wrap: wrap;">
                                 <span class="hero-badge" style="margin-bottom: 0;">
                                     <span class="pulse"></span> Active engagement &middot; since January 2026
@@ -1757,6 +1878,60 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Theme Switcher Logic -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var MODE_KEY = 'bo-theme-mode';
+            var ACCENT_KEY = 'bo-theme-accent';
+            var ACCENTS = ['green', 'blue', 'orange', 'red'];
+
+            function applyMode(mode) {
+                if (mode === 'light') {
+                    root.setAttribute('data-theme', 'light');
+                } else {
+                    root.removeAttribute('data-theme');
+                }
+                var icon = document.querySelector('#modeToggle i');
+                if (icon) icon.className = (mode === 'light') ? 'fas fa-sun' : 'fas fa-moon';
+            }
+
+            function applyAccent(accent) {
+                if (ACCENTS.indexOf(accent) === -1) accent = 'green';
+                if (accent === 'green') {
+                    root.removeAttribute('data-accent');
+                } else {
+                    root.setAttribute('data-accent', accent);
+                }
+                document.querySelectorAll('.theme-switcher .swatch').forEach(function (s) {
+                    s.classList.toggle('active', s.getAttribute('data-set') === accent);
+                });
+            }
+
+            // Initial state (default: dark + green)
+            var mode = localStorage.getItem(MODE_KEY) || 'dark';
+            var accent = localStorage.getItem(ACCENT_KEY) || 'green';
+            applyMode(mode);
+            applyAccent(accent);
+
+            var modeBtn = document.getElementById('modeToggle');
+            if (modeBtn) {
+                modeBtn.addEventListener('click', function () {
+                    mode = (mode === 'light') ? 'dark' : 'light';
+                    localStorage.setItem(MODE_KEY, mode);
+                    applyMode(mode);
+                });
+            }
+            document.querySelectorAll('.theme-switcher .swatch').forEach(function (s) {
+                s.addEventListener('click', function () {
+                    accent = s.getAttribute('data-set');
+                    localStorage.setItem(ACCENT_KEY, accent);
+                    applyAccent(accent);
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>
