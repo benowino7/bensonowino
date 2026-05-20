@@ -1040,6 +1040,35 @@
             opacity: 1;
         }
 
+        /* ===== HERO GRAFFITI (right-side decorative art) ===== */
+        .hero-graffiti {
+            position: absolute;
+            top: 50%;
+            right: 4%;
+            transform: translateY(-50%);
+            width: 36%;
+            max-width: 380px;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+        .hero-graffiti svg {
+            width: 100%;
+            height: auto;
+            color: var(--accent);
+            transform: rotate(-5deg);
+            filter: drop-shadow(0 8px 30px rgba(var(--accent-rgb), 0.12));
+            animation: graffitiFloat 7s ease-in-out infinite;
+        }
+        @keyframes graffitiFloat {
+            0%, 100% { transform: rotate(-5deg) translateY(0); }
+            50%      { transform: rotate(-5deg) translateY(-12px); }
+        }
+        .hero-section > .row { position: relative; z-index: 2; }
+        @media (max-width: 1199px) {
+            .hero-graffiti { display: none; }
+        }
+
         /* ===== FULL-BLEED LAYOUT FIXES ===== */
         /* Template caps the whole layout at 1140px; let it fill the viewport */
         .wrapper { max-width: 100% !important; }
@@ -1156,6 +1185,59 @@
         <div class="content">
             <!-- Hero Section -->
             <div class="container py-5 hero-section">
+                <!-- Large decorative graffiti (right side, follows the active theme) -->
+                <div class="hero-graffiti" aria-hidden="true">
+                    <svg viewBox="0 0 380 540" xmlns="http://www.w3.org/2000/svg"
+                         fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- sparkles -->
+                        <g fill="currentColor" style="color: var(--accent-2);">
+                            <path d="M58,58 l4.4,12 12,4.4 -12,4.4 -4.4,12 -4.4,-12 -12,-4.4 12,-4.4 Z"/>
+                            <path d="M326,96 l3.4,9.6 9.6,3.4 -9.6,3.4 -3.4,9.6 -3.4,-9.6 -9.6,-3.4 9.6,-3.4 Z"/>
+                        </g>
+
+                        <!-- code tag </> -->
+                        <polyline points="150,118 108,166 150,214" stroke="currentColor" stroke-width="12"/>
+                        <line x1="180" y1="104" x2="208" y2="228" stroke="currentColor" stroke-width="12"/>
+                        <polyline points="238,118 280,166 238,214" stroke="currentColor" stroke-width="12"/>
+
+                        <!-- braces { } -->
+                        <path d="M92,250 q-18,0 -18,27 0,16 -13,22 13,6 13,22 0,27 18,27"
+                              stroke="currentColor" stroke-width="6" opacity="0.6" style="color: var(--accent-2);"/>
+                        <path d="M296,250 q18,0 18,27 0,16 13,22 -13,6 -13,22 0,27 -18,27"
+                              stroke="currentColor" stroke-width="6" opacity="0.6" style="color: var(--accent-2);"/>
+
+                        <!-- finance trend arrow (growth) -->
+                        <polyline points="118,372 168,338 206,358 262,308" stroke="currentColor" stroke-width="9"/>
+                        <polyline points="238,308 264,306 262,332" stroke="currentColor" stroke-width="9"/>
+
+                        <!-- blockchain linked blocks -->
+                        <g stroke="currentColor" stroke-width="6" style="color: var(--accent-2);">
+                            <rect x="80" y="430" width="46" height="46" rx="10"/>
+                            <rect x="166" y="430" width="46" height="46" rx="10"/>
+                            <line x1="126" y1="453" x2="166" y2="453"/>
+                        </g>
+
+                        <!-- coin / currency -->
+                        <g stroke="currentColor" stroke-width="6">
+                            <circle cx="280" cy="453" r="28"/>
+                            <line x1="280" y1="434" x2="280" y2="472"/>
+                            <path d="M289,445 q-13,-5 -13,6 0,8 13,5 13,-3 13,6 0,11 -13,5" stroke-width="5"/>
+                        </g>
+
+                        <!-- squiggle -->
+                        <path d="M88,508 q13,-17 26,0 t26,0 t26,0 t26,0 t26,0"
+                              stroke="currentColor" stroke-width="6" style="color: var(--accent-2);"/>
+
+                        <!-- dots -->
+                        <g fill="currentColor">
+                            <circle cx="312" cy="200" r="4.5"/>
+                            <circle cx="64" cy="206" r="4.5"/>
+                            <circle cx="330" cy="372" r="4.5" style="color: var(--accent-2);"/>
+                            <circle cx="56" cy="372" r="4.5"/>
+                        </g>
+                    </svg>
+                </div>
+
                 <div class="row px-3">
                     <div class="col-12" data-aos="fade-up">
                         <div class="hero-badge">
