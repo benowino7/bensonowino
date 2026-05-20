@@ -1023,6 +1023,23 @@
             border-radius: 2px;
         }
 
+        /* ===== SIDEBAR DECORATIVE ART ===== */
+        .sidebar-art {
+            min-height: 140px;
+            opacity: 0.85;
+        }
+        .sidebar-art svg {
+            width: 70%;
+            max-width: 190px;
+            height: auto;
+            transform: rotate(-4deg);
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+        .sidebar-art:hover svg {
+            transform: rotate(0deg) scale(1.04);
+            opacity: 1;
+        }
+
         /* ===== FULL-BLEED LAYOUT FIXES ===== */
         /* Template caps the whole layout at 1140px; let it fill the viewport */
         .wrapper { max-width: 100% !important; }
@@ -1086,7 +1103,41 @@
                     <h4 class="typed-text-output d-inline-block"></h4>
                     <div class="typed-text d-none">Software Engineer, Fintech Builder, Blockchain Dev, Full Stack Dev, DevOps Engineer, Web3 Architect</div>
                 </div>
-                <div class="d-flex justify-content-center mt-auto mb-3">
+
+                <!-- Decorative graffiti art (fills the empty sidebar space, follows the active accent) -->
+                <div class="sidebar-art flex-grow-1 d-flex align-items-center justify-content-center my-3" aria-hidden="true">
+                    <svg viewBox="0 0 200 230" xmlns="http://www.w3.org/2000/svg"
+                         fill="none" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+                        <!-- code tag </> -->
+                        <polyline points="76,92 56,116 76,140" stroke="currentColor" stroke-width="8"/>
+                        <line x1="92" y1="84" x2="108" y2="148" stroke="currentColor" stroke-width="8"/>
+                        <polyline points="124,92 144,116 124,140" stroke="currentColor" stroke-width="8"/>
+                        <!-- squiggle underline -->
+                        <path d="M48,172 q9,-15 18,0 t18,0 t18,0 t18,0 t18,0"
+                              stroke="currentColor" stroke-width="5" style="color: var(--accent-2);"/>
+                        <!-- braces { } -->
+                        <path d="M40,80 q-12,0 -12,18 0,10 -8,14 8,4 8,14 0,18 12,18"
+                              stroke="currentColor" stroke-width="4" opacity="0.55"/>
+                        <path d="M160,80 q12,0 12,18 0,10 8,14 -8,4 -8,14 0,18 -12,18"
+                              stroke="currentColor" stroke-width="4" opacity="0.55"/>
+                        <!-- sparkles -->
+                        <g style="color: var(--accent-2);" fill="currentColor">
+                            <path d="M44,46 l3.2,9 9,3.2 -9,3.2 -3.2,9 -3.2,-9 -9,-3.2 9,-3.2 Z"/>
+                            <path d="M156,54 l2.6,7.4 7.4,2.6 -7.4,2.6 -2.6,7.4 -2.6,-7.4 -7.4,-2.6 7.4,-2.6 Z"/>
+                        </g>
+                        <path d="M150,196 l2.4,6.8 6.8,2.4 -6.8,2.4 -2.4,6.8 -2.4,-6.8 -6.8,-2.4 6.8,-2.4 Z"
+                              fill="currentColor"/>
+                        <!-- dots -->
+                        <g fill="currentColor">
+                            <circle cx="30" cy="120" r="3.4"/>
+                            <circle cx="170" cy="128" r="3.4"/>
+                            <circle cx="66" cy="40" r="3"/>
+                            <circle cx="100" cy="200" r="3.4" style="color: var(--accent-2);"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="d-flex justify-content-center mb-3">
                     <a class="mx-2" target="_blank" href="https://twitter.com/BensonJamari"><i class="fab fa-x-twitter"></i></a>
                     <a class="mx-2" target="_blank" href="https://www.linkedin.com/in/benson-owino-338274189/"><i class="fab fa-linkedin-in"></i></a>
                     <a class="mx-2" target="_blank" href="https://github.com/benowino7"><i class="fab fa-github"></i></a>
@@ -1752,12 +1803,12 @@
                             <div class="col-md-6 col-lg-4 mb-4">
                                 <div class="project-card">
                                     <div class="project-img-wrapper">
-                                        <img class="project-img" src="img/portfolio-3.png" alt="Young Nesher">
+                                        <img class="project-img" src="img/proj-youngnesher.png" alt="Young Nesher Holdings">
                                     </div>
                                     <div class="project-body">
-                                        <div class="project-type">Web Application</div>
-                                        <h5>Young Nesher</h5>
-                                        <p>Community and business web platform.</p>
+                                        <div class="project-type">E-commerce Platform</div>
+                                        <h5>Young Nesher Holdings</h5>
+                                        <p>Marketplace web platform for local products, built end-to-end as a bespoke client portal.</p>
                                         <a href="https://young-nesher.com/" target="_blank" class="project-link">
                                             Visit site <i class="fas fa-arrow-right"></i>
                                         </a>
