@@ -1106,6 +1106,76 @@
                 margin-left: 0;
             }
         }
+
+        /* ===== RESPONSIVE FIXES ===== */
+        /* Stop any element from forcing horizontal scroll (the testimonial
+           owl-carousel clones extend off-canvas) */
+        html, body { overflow-x: hidden; max-width: 100%; }
+        .owl-carousel, .owl-carousel .owl-stage-outer { overflow: hidden; }
+        img { max-width: 100%; }
+
+        /* Below 992px: stack the full sidebar on top of the content instead of
+           the template's hover-to-expand icon strip (which is unusable on touch). */
+        @media (max-width: 991.98px) {
+            .wrapper .sidebar {
+                position: relative !important;
+                width: 100% !important;
+                height: auto !important;
+                margin: 0 !important;
+                float: none !important;
+                padding-top: 70px;        /* clear the fixed theme switcher */
+                z-index: 1;
+            }
+            .wrapper .sidebar .sidebar-text {
+                display: flex !important;
+                height: auto !important;   /* h-100 collapses to 0 when stacked */
+                visibility: visible !important;  /* template hides it 768-991 */
+            }
+            .wrapper .sidebar .sidebar-icon { display: none !important; }
+            /* graffiti shouldn't grow to fill in the stacked sidebar */
+            .sidebar-art { flex: 0 0 auto !important; }
+            /* cap the profile photo so the stacked sidebar isn't enormous */
+            .sidebar-text > img {
+                max-width: 240px;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            .wrapper .content {
+                position: relative !important;
+                width: 100% !important;
+                margin-left: 0 !important;
+                float: none !important;
+                padding: 24px !important;
+            }
+            .wrapper .content::before,
+            .wrapper .content::after { display: none !important; }
+            /* keep the stacked sidebar a sensible height, not a full screen */
+            .sidebar-art { min-height: 70px; }
+            .sidebar-art svg { max-width: 150px; }
+        }
+
+        /* Hero text/stats reflow on small screens */
+        @media (max-width: 767.98px) {
+            .hero-section { min-height: auto; padding: 1.5rem 0 1rem; }
+            .hero-title { font-size: 1.9rem; }
+            .stat-grid { gap: 0.6rem; }
+            .stat-number { font-size: 1.3rem; }
+            .stat-label { font-size: 0.62rem; }
+            .section-title { font-size: 1.5rem; }
+            /* sidebar buttons stack cleanly */
+            .sidebar .btn { font-size: 0.72rem; padding: 0.5rem 0.4rem; }
+        }
+
+        /* Theme switcher: keep it compact and never let it cover content text */
+        @media (max-width: 991.98px) {
+            .theme-switcher { top: 12px; right: 12px; }
+        }
+        @media (max-width: 400px) {
+            .theme-switcher { gap: 0.3rem; padding: 0.28rem 0.4rem; }
+            .theme-switcher .mode-toggle { width: 28px; height: 28px; font-size: 0.8rem; }
+            .theme-switcher .swatch { width: 16px; height: 16px; }
+            .theme-switcher .swatches { gap: 0.28rem; padding-left: 0.35rem; }
+        }
     </style>
 </head>
 
